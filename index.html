@@ -718,6 +718,18 @@
 <a href="https://wa.me/919767974738?text=Hello%20Doctor%2C%20I%20want%20to%20know%20about%20kidney%20stone%20treatment." target="_blank" rel="noopener" class="fab" aria-label="WhatsApp"><span class="wa-ico">✆</span> <span>WhatsApp Us</span></a>
 
 <script>
+  /* PHONES: keep it light — only the hero video plays; the about & feature
+     videos stay paused on their poster image to save data and avoid stutter. */
+  if (window.matchMedia('(max-width:760px)').matches) {
+    document.querySelectorAll('video').forEach((v, i) => {
+      if (i === 0) return;                 // keep hero video
+      v.removeAttribute('autoplay');
+      v.removeAttribute('loop');
+      v.setAttribute('preload', 'none');
+      v.pause();
+    });
+  }
+
   const nav = document.getElementById('nav');
   addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 8), { passive:true });
 
